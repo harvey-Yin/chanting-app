@@ -14,6 +14,9 @@
     "app-plus" : {
         "usingComponents" : true,
         "nvueCompiler" : "uni-app",
+		"nvue":{
+			"flex-direction":"column-reverse"
+		},
         /* 5+App特有相关 */
         "modules" : {},
         /* 模块配置 */

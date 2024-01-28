@@ -1,16 +1,17 @@
 <template>
 	<view class="uni-flex uni-column">
-		<uni-card title="基础卡片" sub-title="副标题" extra="额外信息" @click="onClick">
-		</uni-card>
+		<uni-card v-for="card in cards_list" title={{card.chant_count}} sub-title="念佛数" extra="名次:{{card.rank}}" @click="onClick"></uni-card>
+		<text>top:{{card.top_user.user_id}}</text>
 	</view>
 </template>
 
-<script>
-	export default {
-		
-	}
+<script setup>
+	import '../../common/data_loader.js'
+	var dataloader = new DataLoader();
+	dataloader.load();
+	var use_id = "user123";
+	cards_list = dataloader.create_chant_card_by_user(use_id);
 </script>
 
 <style>
-
 </style>
