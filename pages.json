@@ -1,6 +1,6 @@
 {
   "pages": [{
-      "path": "pages/news/index",
+      "path": "pages/news/daily-statistics",
       "style": {}
     },
     {
@@ -16,7 +16,7 @@
   ],
   "globalStyle": {
     "navigationBarTextStyle": "white",
-    "navigationBarTitleText": "新闻资讯",
+    "navigationBarTitleText": "念佛",
     "navigationBarBackgroundColor": "#2F85FC",
     "backgroundColor": "#FFFFFF"
   },

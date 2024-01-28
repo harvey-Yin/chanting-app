@@ -1,0 +1,16 @@
+<template>
+	<view class="uni-flex uni-column">
+		<uni-card title="基础卡片" sub-title="副标题" extra="额外信息" @click="onClick">
+		</uni-card>
+	</view>
+</template>
+
+<script>
+	export default {
+		
+	}
+</script>
+
+<style>
+
+</style>
