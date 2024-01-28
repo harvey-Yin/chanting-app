@@ -1,17 +1,45 @@
 <template>
 	<view class="uni-flex uni-column">
-		<uni-card v-for="card in cards_list" title={{card.chant_count}} sub-title="念佛数" extra="名次:{{card.rank}}" @click="onClick"></uni-card>
-		<text>top:{{card.top_user.user_id}}</text>
+		<view class="uni-flex uni-column" v-for="card in cards_list">
+			<view class="view_list">{{toDate(card.chant_date)}}</view>
+			<uni-card :title="card.chant_count" sub-title="念佛数" :extra='"名次:"+card.rank' @click="onClick">
+				<text class="uni-body">top:{{card.top_user}}</text>
+			</uni-card>
+		</view>
 	</view>
 </template>
 
 <script setup>
-	import '../../common/data_loader.js'
+	import {
+		DataLoader
+	} from '../../common/data_loader.js'
+	import {
+		ChantRecord,
+		User,
+		UIChantCard
+	} from "../../common/model.js"
+	import {
+		computed
+	} from 'vue'
+
 	var dataloader = new DataLoader();
 	dataloader.load();
 	var use_id = "user123";
-	cards_list = dataloader.create_chant_card_by_user(use_id);
+	var cards_list = dataloader.create_chant_card_by_user(use_id);
+
+	function toDate(date){
+		console.log("toDate: %o",date);
+		var year = date.getFullYear();
+		var month = date.getMonth() + 1;
+		var day = date.getDate();
+		var hour = date.getHours();
+		var minute = date.getMinutes();
+		return year + "-" + month + "-" + day + " " + hour + ":" + minute;
+	}
 </script>
 
 <style>
+	.view_list {
+		align-items: center;
+	}
 </style>

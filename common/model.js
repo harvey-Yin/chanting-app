@@ -21,3 +21,5 @@ class UIChantCard{
 		this.top_user = top_user;
 	}
 }
+
+export {ChantRecord, User, UIChantCard};
